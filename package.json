@@ -1,0 +1,31 @@
+{
+  "name": "node-yaml-config",
+  "description": "Write your configuration files for node.js in yaml",
+  "version": "0.0.1",
+  "main": "./lib/node-yaml-config",
+  "dependencies": {
+    "js-yaml": "1.0.2"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "devDependencies": {
+    "mocha": "~1.6.0",
+    "should": "~1.2.0"
+  },
+  "scripts": {
+    "prepublish" : "npm prune",
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leafty/node-yaml-config.git"
+  },
+  "keywords": [
+    "yaml",
+    "config"
+  ],
+  "author": "Johann-Michael Thiebaut <johann.thiebaut@gmail.com>",
+  "license": "MIT"
+}
