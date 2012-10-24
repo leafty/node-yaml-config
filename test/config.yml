@@ -1,0 +1,21 @@
+default:
+  server:
+    port: 3000
+  database:
+    host: 'localhost'
+    port: 27017
+development:
+  database:
+    db: 'dev_db'
+test:
+  database:
+    db: 'test_db'
+production:
+  server:
+    port: 8000
+  database:
+    db: 'prod_db'
+    user: 'dbuser'
+    password: 'pass'
+  cache:
+    dir: 'static'

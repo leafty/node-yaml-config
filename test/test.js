@@ -3,7 +3,7 @@ var should = require('should');
 
 var loader = require('../lib/node-yaml-config');
 
-var file = __dirname + '/../examples/config.yml';
+var file = __dirname + '/config.yml';
 
 var example_dev_config = {
   server: { 
