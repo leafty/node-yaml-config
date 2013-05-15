@@ -58,7 +58,7 @@ var example_new_dev_config = {
 
 var example_new_test_config = {
   server: {
-    port: 443
+    port: 8080
   },
   database: {
     host: 'localhost',
@@ -69,7 +69,7 @@ var example_new_test_config = {
 
 var example_new_prod_config = {
   server: {
-    port: 8000
+    port: 443
   },
   database: {
     host: 'localhost',
