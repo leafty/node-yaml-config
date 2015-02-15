@@ -16,7 +16,7 @@
   },
   "scripts": {
     "prepublish" : "npm prune",
-    "test": "make test"
+    "test": "OPENSHIFT_NODEJS_IP=appname.rhcloud.com make test"
   },
   "repository": {
     "type": "git",
