@@ -25,6 +25,7 @@ In your configuration file:
 ```yaml
 default:
   server:
+    host: 'localhost'
     port: 3000
   database:
     host: 'localhost'
@@ -37,6 +38,7 @@ test:
     db: 'test_db'
 production:
   server:
+    host: $OPENSHIFT_NODEJS_IP
     port: 8000
   database:
     db: 'prod_db'
@@ -47,6 +49,8 @@ production:
 ```
 
 **node-yaml-config** takes the configuration found in default, then overwrites it with the values found in the environment specific parts. The configuration file is loaded synchronously.
+
+Values prefixed with a dollar sign will be substituted with the corresponding environment variable.
 
 ## API
 
