@@ -8,7 +8,7 @@ var save_file = __dirname + '/config.yml.bak';
 var new_file = __dirname + '/config-reload.yml';
 
 var example_dev_config = {
-  server: { 
+  server: {
     port: 3000
   },
   database: {
@@ -19,7 +19,7 @@ var example_dev_config = {
 };
 
 var example_test_config = {
-  server: { 
+  server: {
     port: 3000
   },
   database: {
@@ -30,7 +30,7 @@ var example_test_config = {
 };
 
 var example_prod_config = {
-  server: { 
+  server: {
     port: 8000
   },
   database: {
@@ -42,7 +42,8 @@ var example_prod_config = {
   },
   cache: {
     dir: 'static'
-  }
+  },
+  admins: [ "humans", "subhumans", "arachnids" ]
 };
 
 var example_new_dev_config = {
