@@ -19,3 +19,7 @@ production:
     password: 'pass'
   cache:
     dir: 'static'
+  admins:
+    - "humans"
+    - "subhumans"
+    - "arachnids"
