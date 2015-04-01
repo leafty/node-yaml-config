@@ -27,5 +27,9 @@
     "config"
   ],
   "author": "Johann-Michael Thiebaut <johann.thiebaut@gmail.com>",
+  "contributors": [
+    "Johann-Michael Thiebaut <johann.thiebaut@gmail.com>",
+    "Jeroen Pelgrims <jeroen.pelgrims@gmail.com> (http://jeroenpelgrims.be)"
+  ],
   "license": "MIT"
 }

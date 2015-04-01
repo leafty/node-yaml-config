@@ -45,7 +45,12 @@ var example_prod_config = {
   },
   cache: {
     dir: 'static'
-  }
+  },
+  username_blacklist: [
+    'login',
+    'admin',
+    'register'
+  ]
 };
 
 var example_new_dev_config = {
@@ -88,6 +93,7 @@ var example_new_prod_config = {
 
 describe('node-yaml-config', function() {
   describe('#load()', function() {
+
     describe('should corectly load the different configurations', function() {
       it('development', function() {
         should.deepEqual(loader.load(file, 'development'), example_dev_config);
@@ -99,8 +105,8 @@ describe('node-yaml-config', function() {
         should.deepEqual(loader.load(file, 'production'), example_prod_config);
       });
     });
-    describe('should not reread the file', function() {
 
+    describe('should not reread the file', function() {
       before(function() {
         fs.renameSync(file, save_file);
       });
@@ -119,11 +125,23 @@ describe('node-yaml-config', function() {
         should.deepEqual(loader.load(file, 'production'), example_prod_config);
       });
     });
+
     describe('should fill environment variables', function() {
       it('production', function() {
         //Setting process.env variables is useless since the tests are run in a different process aparrently
         //Hence the setting of the environment variable in package.json
         should.deepEqual(loader.load(file, 'production'), example_prod_config);
+      });
+    });
+
+    describe('should deserialise array correcly', function() {
+      it('production', function() {
+        var config = loader.load(file, 'production');
+        
+        config.username_blacklist.should.be.instanceof(Array).and.have.lengthOf(3);
+        config.username_blacklist[0].should.be.equal('login');
+        config.username_blacklist[1].should.be.equal('admin');
+        config.username_blacklist[2].should.be.equal('register');
       });
     });
   });

@@ -21,3 +21,7 @@ production:
     password: 'pass'
   cache:
     dir: 'static'
+  username_blacklist:
+    - login
+    - admin
+    - register
