@@ -1,10 +1,11 @@
 {
   "name": "node-yaml-config",
   "description": "Write your configuration files for node.js in yaml",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./lib/node-yaml-config",
   "dependencies": {
-    "js-yaml": "1.0.2"
+    "js-yaml": "1.0.2",
+    "node.extend": "~1.1.3"
   },
   "directories": {
     "example": "examples",
@@ -15,7 +16,7 @@
     "should": "~1.2.0"
   },
   "scripts": {
-    "prepublish" : "npm prune",
+    "prepublish": "npm prune",
     "test": "OPENSHIFT_NODEJS_IP=appname.rhcloud.com make test"
   },
   "repository": {
