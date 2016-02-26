@@ -1,5 +1,7 @@
 # node-yaml-config
 
+[![Build Status](https://travis-ci.org/leafty/node-yaml-config.svg?branch=master)](https://travis-ci.org/leafty/node-yaml-config)
+
 Write your configuration files for node.js in yaml
 
 ## Installation
