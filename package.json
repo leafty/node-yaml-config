@@ -17,7 +17,7 @@
   },
   "scripts": {
     "prepublish": "npm prune",
-    "test": "make test"
+    "test": "OPENSHIFT_NODEJS_IP=appname.rhcloud.com make test"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,9 @@
     "config"
   ],
   "author": "Johann-Michael Thiebaut <johann.thiebaut@gmail.com>",
+  "contributors": [
+    "Johann-Michael Thiebaut <johann.thiebaut@gmail.com>",
+    "Jeroen Pelgrims <jeroen.pelgrims@gmail.com> (http://jeroenpelgrims.be)"
+  ],
   "license": "MIT"
 }

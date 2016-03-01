@@ -9,6 +9,7 @@ var new_file = __dirname + '/config-reload.yml';
 
 var example_dev_config = {
   server: {
+    host: 'localhost',
     port: 3000
   },
   database: {
@@ -20,6 +21,7 @@ var example_dev_config = {
 
 var example_test_config = {
   server: {
+    host: 'localhost',
     port: 3000
   },
   database: {
@@ -31,6 +33,7 @@ var example_test_config = {
 
 var example_prod_config = {
   server: {
+    host: 'appname.rhcloud.com',
     port: 8000
   },
   database: {
@@ -114,6 +117,14 @@ describe('node-yaml-config', function() {
         should.deepEqual(loader.load(file, 'test'), example_test_config);
       });
       it('production', function() {
+        should.deepEqual(loader.load(file, 'production'), example_prod_config);
+      });
+    });
+
+    describe('should fill environment variables', function() {
+      it('production', function() {
+        //Setting process.env variables is useless since the tests are run in a different process aparrently
+        //Hence the setting of the environment variable in package.json
         should.deepEqual(loader.load(file, 'production'), example_prod_config);
       });
     });
