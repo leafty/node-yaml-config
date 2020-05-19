@@ -1,7 +1,7 @@
 {
   "name": "node-yaml-config",
   "description": "Write your configuration files for node.js in yaml",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "./lib/node-yaml-config",
   "dependencies": {
     "js-yaml": "~3.13.1",
