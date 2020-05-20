@@ -828,7 +828,7 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:3.13.1, js-yaml@npm:~3.13.1":
+"js-yaml@npm:3.13.1, js-yaml@npm:^3.13.1":
   version: 3.13.1
   resolution: "js-yaml@npm:3.13.1"
   dependencies:
@@ -968,7 +968,7 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
-"mocha@npm:~7.1.2":
+"mocha@npm:^7.1.2":
   version: 7.1.2
   resolution: "mocha@npm:7.1.2"
   dependencies:
@@ -1052,14 +1052,14 @@ fsevents@~2.1.1:
   version: 0.0.0-use.local
   resolution: "node-yaml-config@workspace:."
   dependencies:
-    js-yaml: ~3.13.1
-    mocha: ~7.1.2
-    node.extend: ~2.0.2
-    should: ~13.2.3
+    js-yaml: ^3.13.1
+    mocha: ^7.1.2
+    node.extend: ^2.0.2
+    should: ^13.2.3
   languageName: unknown
   linkType: soft
 
-"node.extend@npm:~2.0.2":
+"node.extend@npm:^2.0.2":
   version: 2.0.2
   resolution: "node.extend@npm:2.0.2"
   dependencies:
@@ -1428,7 +1428,7 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
-"should@npm:~13.2.3":
+"should@npm:^13.2.3":
   version: 13.2.3
   resolution: "should@npm:13.2.3"
   dependencies:

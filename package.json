@@ -6,16 +6,16 @@
   "license": "MIT",
   "main": "./lib/node-yaml-config",
   "dependencies": {
-    "js-yaml": "~3.13.1",
-    "node.extend": "~2.0.2"
+    "js-yaml": "^3.13.1",
+    "node.extend": "^2.0.2"
   },
   "directories": {
     "example": "examples",
     "test": "test"
   },
   "devDependencies": {
-    "mocha": "~7.1.2",
-    "should": "~13.2.3"
+    "mocha": "^7.1.2",
+    "should": "^13.2.3"
   },
   "scripts": {
     "test2": "NODE_ENV=test mocha --reporter spec"
