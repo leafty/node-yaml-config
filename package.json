@@ -18,7 +18,7 @@
     "should": "^13.2.3"
   },
   "scripts": {
-    "test2": "NODE_ENV=test mocha --reporter spec"
+    "test": "NODE_ENV=test mocha --reporter spec"
   },
   "repository": {
     "type": "git",
