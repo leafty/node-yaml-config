@@ -1,7 +1,9 @@
 {
   "name": "node-yaml-config",
   "description": "Write your configuration files for node.js in yaml",
-  "version": "0.0.6",
+  "version": "1.0.0-alpha",
+  "author": "Johann-Michael Thiebaut <johann.thiebaut@gmail.com>",
+  "license": "MIT",
   "main": "./lib/node-yaml-config",
   "dependencies": {
     "js-yaml": "~3.13.1",
@@ -16,8 +18,7 @@
     "should": "~13.2.3"
   },
   "scripts": {
-    "prepublishOnly": "npm prune",
-    "test": "make test"
+    "test2": "NODE_ENV=test mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,5 @@
   "keywords": [
     "yaml",
     "config"
-  ],
-  "author": "Johann-Michael Thiebaut <johann.thiebaut@gmail.com>",
-  "license": "MIT"
+  ]
 }
