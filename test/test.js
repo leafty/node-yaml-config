@@ -1,7 +1,7 @@
 var fs = require('fs');
 var should = require('should');
 
-var loader = require('../lib/node-yaml-config');
+var loader = require('../dist');
 
 var file = __dirname + '/config.yml';
 var save_file = __dirname + '/config.yml.bak';
