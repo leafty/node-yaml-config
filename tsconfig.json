@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "es2017",
-    "sourceMap": true,
+    "declarationMap": true,
+    "incremental": true,
+    "module": "CommonJS",
     "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "ES2017",
+    "strict": true,
+    "baseUrl": "./src/"
   },
   "exclude": ["node_modules", "dist"]
 }
