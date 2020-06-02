@@ -5,12 +5,12 @@
  * Author: Johann-Michael Thiebaut <johann.thiebaut@gmail.com>
  */
 
-import { ConfigLoaderOptions } from 'config-loader.options';
 import { readFile as readFileLegacy, readFileSync } from 'fs';
 import { load } from 'js-yaml';
 import * as extend from 'node.extend';
 import { resolve } from 'path';
 import { promisify } from 'util';
+import { ConfigLoaderOptions } from './config-loader.options';
 
 const readFile = promisify(readFileLegacy);
 
@@ -20,50 +20,28 @@ export class ConfigLoader {
 
   constructor(private readonly options?: ConfigLoaderOptions) {}
 
-  async read(filename: string): Promise<any> {
-    const path = this.getPath(filename);
-    const data = load(await readFile(path, { encoding: 'utf-8' }));
-    this.loadedFiles[path] = data;
-    return data;
-  }
-
-  async load(filename: string, env: string): Promise<any> {
-    const path = this.getPath(filename);
-    let data: any;
-
-    if (this.loadedFiles.hasOwnProperty(path)) {
-      data = this.loadedFiles[path];
-    } else {
-      data = await this.read(filename);
-    }
-
-    const _env = env || process.env.NODE_ENV || 'development';
-    const defaultConfig = data.default || {};
-    const extensionConfig = data[_env] || {};
-
-    return extend(true, extend(true, {}, defaultConfig), extensionConfig);
-  }
-
-  async reload(filename: string, env: string): Promise<any> {
-    await this.read(filename);
-    return this.load(filename, env);
-  }
-
-  readSync(filename: string): any {
+  /**
+   * Reads a yaml file
+   */
+  read(filename: string): any {
     const path = this.getPath(filename);
     const data = load(readFileSync(path, { encoding: 'utf-8' }));
     this.loadedFiles[path] = data;
     return data;
   }
 
-  loadSync(filename: string, env: string): any {
+  /**
+   * Loads a yaml configuration
+   * If the file has already been parsed, the file is not read again.
+   */
+  load(filename: string, env?: string): any {
     const path = this.getPath(filename);
     let data: any;
 
     if (this.loadedFiles.hasOwnProperty(path)) {
       data = this.loadedFiles[path];
     } else {
-      data = this.readSync(filename);
+      data = this.read(filename);
     }
 
     const _env = env || process.env.NODE_ENV || 'development';
@@ -71,6 +49,55 @@ export class ConfigLoader {
     const extensionConfig = data[_env] || {};
 
     return extend(true, extend(true, {}, defaultConfig), extensionConfig);
+  }
+
+  /**
+   * Reloads a yaml configuration from disk
+   * If the file has already been parsed, the file is not read again.
+   */
+  reload(filename: string, env?: string): any {
+    this.read(filename);
+    return this.load(filename, env);
+  }
+
+  /**
+   * Reads a yaml file (async variant)
+   */
+  async readAsync(filename: string): Promise<any> {
+    const path = this.getPath(filename);
+    const data = load(await readFile(path, { encoding: 'utf-8' }));
+    this.loadedFiles[path] = data;
+    return data;
+  }
+
+  /**
+   * Loads a yaml configuration (async variant)
+   * If the file has already been parsed, the file is not read again.
+   */
+  async loadAsync(filename: string, env?: string): Promise<any> {
+    const path = this.getPath(filename);
+    let data: any;
+
+    if (this.loadedFiles.hasOwnProperty(path)) {
+      data = this.loadedFiles[path];
+    } else {
+      data = await this.readAsync(filename);
+    }
+
+    const _env = env || process.env.NODE_ENV || 'development';
+    const defaultConfig = data.default || {};
+    const extensionConfig = data[_env] || {};
+
+    return extend(true, extend(true, {}, defaultConfig), extensionConfig);
+  }
+
+  /**
+   * Reloads a yaml configuration from disk (async variant)
+   * If the file has already been parsed, the file is not read again.
+   */
+  async reloadAsync(filename: string, env: string): Promise<any> {
+    await this.readAsync(filename);
+    return this.loadAsync(filename, env);
   }
 
   private getPath(filename: string): string {

@@ -11,21 +11,18 @@
   ],
   "directories": {
     "lib": "src",
-    "example": "examples",
-    "test": "test"
+    "example": "examples"
   },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "yarn run prebuild && tsc",
     "build:watch": "tsc --watch",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "format2": "prettier --write \"src/**/*.ts\"",
-    "test": "NODE_ENV=test mocha --reporter spec",
+    "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "jest": "jest",
-    "jest:watch": "jest --watch",
-    "jest:cov": "jest --coverage",
-    "jest:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "prepare": "yarn run build"
   },
   "dependencies": {
@@ -33,6 +30,7 @@
     "node.extend": "^2.0.2"
   },
   "devDependencies": {
+    "@types/jest": "^25.2.3",
     "@types/js-yaml": "^3.12.4",
     "@types/node": "^14.0.4",
     "@typescript-eslint/eslint-plugin": "^3.0.0",
