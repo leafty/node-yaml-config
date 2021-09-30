@@ -4,6 +4,7 @@ name: Node.js Package
 on:
   release:
     types: [created]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -38,6 +39,6 @@ jobs:
       - name: Build package
         run: yarn build
       - name: Publish
-        run: yarn publish
+        run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
