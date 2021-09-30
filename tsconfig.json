@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "incremental": true,
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "ES2017",
+    "strict": true,
+  },
+  "exclude": ["node_modules", "dist", "examples"]
+}

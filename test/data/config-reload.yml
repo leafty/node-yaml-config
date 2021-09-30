@@ -1,6 +1,6 @@
 default:
   server:
-    port: 3000
+    port: 8080
   database:
     host: 'localhost'
     port: 27017
@@ -12,14 +12,12 @@ test:
     db: 'test_db'
 production:
   server:
-    port: 8000
+    port: 443
   database:
     db: 'prod_db'
     user: 'dbuser'
     password: 'pass'
   cache:
-    dir: 'static'
+    dir: 'cache'
   admins:
-    - "humans"
-    - "subhumans"
-    - "arachnids"
+    - 'superadmins'

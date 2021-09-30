@@ -1,32 +1,73 @@
 {
   "name": "node-yaml-config",
   "description": "Write your configuration files for node.js in yaml",
-  "version": "0.0.6",
-  "main": "./lib/node-yaml-config",
-  "dependencies": {
-    "js-yaml": "~3.13.1",
-    "node.extend": "~2.0.2"
-  },
+  "version": "1.0.0",
+  "author": "Johann-Michael Thiebaut <johann.thiebaut@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "directories": {
-    "example": "examples",
-    "test": "test"
-  },
-  "devDependencies": {
-    "mocha": "~7.1.2",
-    "should": "~13.2.3"
+    "lib": "src",
+    "example": "examples"
   },
   "scripts": {
-    "prepublishOnly": "npm prune",
-    "test": "make test"
+    "prebuild": "rimraf dist",
+    "build": "yarn prebuild && tsc -p ./tsconfig.build.json",
+    "build:watch": "tsc --watch",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "node.extend": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/js-yaml": "^4.0.3",
+    "@types/node": "^16.10.2",
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "jest": "^27.2.4",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "homepage": "https://github.com/leafty/node-yaml-config",
   "repository": {
     "type": "git",
     "url": "https://github.com/leafty/node-yaml-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leafty/node-yaml-config/issues"
   },
   "keywords": [
     "yaml",
     "config"
   ],
-  "author": "Johann-Michael Thiebaut <johann.thiebaut@gmail.com>",
-  "license": "MIT"
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
 }
