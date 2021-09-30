@@ -20,6 +20,17 @@ var config = yaml_config.load(__dirname + '/config/config.yml');
 console.log(config); 
 ```
 
+Or with Typescript:
+```ts
+import { loadAsync } from 'node-yaml-config';
+
+async function main() {
+  const config = await loadAsync(__dirname + '/config/config.yml');
+  console.log(config);
+}
+main();
+```
+
 ## Configuration Files
 
 In your configuration file:
@@ -52,6 +63,10 @@ production:
 
 ## API
 
+### read(filename)
+
+Reads the configuration found in `filename`.
+
 ### load(filename[, env])
 
 Load the configuration found in `filename` with the environment based on `NODE_ENV`. The environment can be forced with the `env` argument.
@@ -64,9 +79,23 @@ Reload the configuration found in `filename`. Later calls to `load` will show th
 
 The file is loaded synchronously.
 
+### readAsync(filename)
+
+Same as `read` but returns a Promise.
+
+### loadAsync(filename[, env])
+
+Same as `load` but returns a Promise.
+
+**node-yaml-config** keeps parsed yaml files in memory to avoid reading files again.
+
+### reloadAsync(filename)
+
+Same as `reload` but returns a Promise.
+
 ## License
 
-Copyright (c) 2012-2013 Johann-Michael Thiebaut <[johann.thiebaut@gmail.com](mailto:johann.thiebaut@gmail.com)>
+Copyright (c) 2012-2021 Johann-Michael Thiebaut <[johann.thiebaut@gmail.com](mailto:johann.thiebaut@gmail.com)>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

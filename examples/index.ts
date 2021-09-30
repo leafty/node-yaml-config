@@ -1,6 +1,5 @@
 import { load } from 'node-yaml-config';
-import { resolve } from 'path';
 
-const config = load(resolve(__dirname, 'config.yml'));
+const config = load('examples/config.yml');
 
 console.log(config);
