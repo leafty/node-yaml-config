@@ -1,7 +1,7 @@
 {
   "name": "node-yaml-config",
   "description": "Write your configuration files for node.js in yaml",
-  "version": "1.0.0-0",
+  "version": "1.0.0",
   "author": "Johann-Michael Thiebaut <johann.thiebaut@gmail.com>",
   "license": "MIT",
   "main": "dist/index.js",
