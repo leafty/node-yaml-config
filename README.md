@@ -1,6 +1,6 @@
 # node-yaml-config
 
-[![Build Status](https://travis-ci.org/leafty/node-yaml-config.svg?branch=master)](https://travis-ci.org/leafty/node-yaml-config)
+[![Node.js CI](https://github.com/leafty/node-yaml-config/actions/workflows/nodejs.yaml/badge.svg)](https://github.com/leafty/node-yaml-config/actions/workflows/nodejs.yaml)
 
 Write your configuration files for node.js in yaml
 
